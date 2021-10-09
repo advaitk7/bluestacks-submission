@@ -1,44 +1,24 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import Header from './components/Header'
+import Body from './components/Body';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { initializeCampaignData } from './slices/campaignSlice';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const campaignDataLength = useSelector(state => state?.campaign?.data?.length);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (campaignDataLength === 0)
+      dispatch(initializeCampaignData());
+  }, []);
 
   return (
-    <div className=" bg-green-400 mt-44">
-      <header className="">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Body />
+    </>
   )
 }
 
