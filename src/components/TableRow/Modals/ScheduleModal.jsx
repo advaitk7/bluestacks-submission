@@ -3,6 +3,7 @@ import Modal from "./Modal";
 import "./ScheduleModal.css";
 import { updateDateInCampaign } from "../../../slices/campaignSlice";
 import Calendar from "../../Calendar";
+
 const ScheduleModalBody = ({ id, handleClose }) => {
   const { createdOn, name, region, image_url } = useSelector(state => state.campaign.data.filter((campaign) => campaign.id === id)[0]);
   const dispatch = useDispatch();
@@ -31,7 +32,6 @@ const ScheduleModalBody = ({ id, handleClose }) => {
     </>
   )
 }
-
 
 export default function ScheduleModal({ show = false, id, handleClose }) {
   return (
