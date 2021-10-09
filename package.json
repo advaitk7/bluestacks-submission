@@ -2,6 +2,7 @@
   "name": "bluestacks-submission",
   "version": "0.0.0",
   "scripts": {
+    "i18next": "i18next 'src/**/*.{js,jsx}' -c ./i18next-parser.config.js",
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview"
@@ -9,9 +10,11 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
     "dayjs": "^1.10.7",
+    "i18next": "^21.2.4",
     "react": "^17.0.0",
     "react-calendar": "^3.4.0",
     "react-dom": "^17.0.0",
+    "react-i18next": "^11.12.0",
     "react-redux": "^7.2.5"
   },
   "devDependencies": {

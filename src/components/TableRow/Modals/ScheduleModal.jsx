@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import Calendar from "react-calendar";
 import Modal from "./Modal";
 import "./ScheduleModal.css";
 import { updateDateInCampaign } from "../../../slices/campaignSlice";
-
+import Calendar from "../../Calendar";
 const ScheduleModalBody = ({ id, handleClose }) => {
   const { createdOn, name, region, image_url } = useSelector(state => state.campaign.data.filter((campaign) => campaign.id === id)[0]);
   const dispatch = useDispatch();
@@ -27,10 +26,7 @@ const ScheduleModalBody = ({ id, handleClose }) => {
         </div>
       </div>
       <div className="schedule__content">
-        <Calendar
-          value={value}
-          onChange={onChange}
-        />
+        <Calendar value={value} onChange={onChange} />
       </div>
     </>
   )
