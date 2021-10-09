@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import campaignReducer from './slices/campaignSlice';
+import activeTabReducer from './slices/tabSlice';
 import { getItem, KEY, setItem } from './utils/localStorage';
 
 const preloadedState = getItem(KEY) 
@@ -9,6 +10,7 @@ const preloadedState = getItem(KEY)
 export const store = configureStore({
   reducer: {
     campaign: campaignReducer,
+    activeTab: activeTabReducer,
   },
   preloadedState,
 });

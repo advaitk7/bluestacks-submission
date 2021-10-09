@@ -21,10 +21,16 @@ export default function TableRow({ index }) {
         <ViewPricingAction imagePath={imagePath} index={index} />
       </td>
       <td className="px-5 py-3">
-        <div className=" grid grid-cols-3">
-          <CSVAction imagePath={imagePath} />
-          <ReportAction imagePath={imagePath} />
-          <ScheduleAction imagePath={imagePath} index={index} />
+        <div className="flex justify-around">
+          <div className="mx-1">
+            <CSVAction imagePath={imagePath} />
+          </div>
+          <div className="mx-1">
+            <ReportAction imagePath={imagePath} />
+          </div>
+          <div className="mx-1">
+            <ScheduleAction imagePath={imagePath} index={index} />
+          </div>
         </div>
       </td>
     </tr>
