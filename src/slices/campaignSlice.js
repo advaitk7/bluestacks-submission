@@ -14,8 +14,8 @@ export const campaignSlice = createSlice({
     setCampaignData: (state, action) => {
       state.data = action.payload;
     },
-    updateDateInCampaign: (state, { payload: { index, date } = {} }) => {
-      state.data[index].createdOn = date;
+    updateDateInCampaign: (state, { payload: { id, date } = {} }) => {
+      state.data.filter((campaign) => campaign.id === id)[0].createdOn = date;
     },
   },
 })

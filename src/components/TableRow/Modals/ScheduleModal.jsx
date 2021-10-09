@@ -4,8 +4,8 @@ import Modal from "./Modal";
 import "./ScheduleModal.css";
 import { updateDateInCampaign } from "../../../slices/campaignSlice";
 
-const ScheduleModalBody = ({ index, handleClose }) => {
-  const { createdOn, name, region, image_url } = useSelector(state => state.campaign.data[index]);
+const ScheduleModalBody = ({ id, handleClose }) => {
+  const { createdOn, name, region, image_url } = useSelector(state => state.campaign.data.filter((campaign) => campaign.id === id)[0]);
   const dispatch = useDispatch();
 
   // const imagePath = "/assets/images/Dashboard" + image_url;
@@ -13,7 +13,7 @@ const ScheduleModalBody = ({ index, handleClose }) => {
 
   const value = new Date(createdOn);
   const onChange = (val) => {
-    dispatch(updateDateInCampaign({ index, date: + val}));
+    dispatch(updateDateInCampaign({ id, date: + val}));
     handleClose();
   };
 
@@ -37,10 +37,10 @@ const ScheduleModalBody = ({ index, handleClose }) => {
 }
 
 
-export default function ScheduleModal({ show = false, index, handleClose }) {
+export default function ScheduleModal({ show = false, id, handleClose }) {
   return (
     <Modal show={show}>
-      <ScheduleModalBody index={index} handleClose={handleClose} />
+      <ScheduleModalBody id={id} handleClose={handleClose} />
     </Modal>
   )
 }

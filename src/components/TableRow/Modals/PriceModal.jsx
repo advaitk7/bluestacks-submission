@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 import Modal from "./Modal";
 
-const PriceModalBody = ({ index, handleClose }) => {
-  const { createdOn, name, region, price, csv, report, image_url } = useSelector(state => state.campaign.data[index]);
-  // const imagePath = "/assets/images/Dashboard" + image_url;
-  const imagePath = "/assets/images/Dashboard-Popup/Popup/Bitmap.png";
+const PriceModalBody = ({ id, handleClose }) => {
+  const { createdOn, name, region, price, csv, report, image_url } = useSelector(state => state.campaign.data.filter((campaign) => campaign.id === id)[0]);
+  const imagePath = "/assets/images/Dashboard" + image_url + "/Thumb/Bitmap.png";
+  // const imagePath = "/assets/images/Dashboard-Popup/Popup/Bitmap.png";
 
   return (
     <>
@@ -24,10 +24,10 @@ const PriceModalBody = ({ index, handleClose }) => {
   )
 }
 
-export default function PriceModal({ show = false, index, handleClose }) {
+export default function PriceModal({ show = false, id, handleClose }) {
   return (
     <Modal show={show}>
-      <PriceModalBody index={index} handleClose={handleClose} />
+      <PriceModalBody id={id} handleClose={handleClose} />
     </Modal>
   )
 }

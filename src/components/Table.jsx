@@ -1,11 +1,32 @@
 // import { data } from "../../public/data/data.json";
 import { useSelector } from "react-redux";
+import { TABS } from "../slices/tabSlice";
 import TableRow from "./TableRow";
 
-export default function Table() {
-  const campaignDataLength = useSelector(state => state.campaign.data.length);
+const getCampaignsForTab = (campaignData, activeTab) => {
+  const date = new Date();
+  date.setHours(0,0,0,0);
+  const currentDate = + date;
+  date.setDate(date.getDate() + 1);
+  const plusOneDate = + date;
 
-  let campaigns = new Array(campaignDataLength).fill(null).map((v, k) => k);
+  return campaignData.filter(({ createdOn }) => {
+    switch (activeTab) {
+      case TABS.past:
+        return createdOn < currentDate;
+      case TABS.upcoming:
+        return createdOn > plusOneDate;
+      case TABS.live:
+        return createdOn >= currentDate && createdOn < plusOneDate;
+    }
+  });
+}
+
+export default function Table() {
+  const campaignData = useSelector(state => state.campaign.data);
+  const activeTab = useSelector(state => state.activeTab.key);
+
+  let campaigns = getCampaignsForTab(campaignData, activeTab);
 
   return (
     <>
@@ -20,8 +41,8 @@ export default function Table() {
             </tr>
           </thead>
           <tbody className="text-[#7788A3]">
-            {campaigns.map((index) => (
-              <TableRow key={index} index={index} />
+            {campaigns.map((campaign) => (
+              <TableRow key={campaign.id} id={campaign.id} />
             ))}
           </tbody>
         </table>
