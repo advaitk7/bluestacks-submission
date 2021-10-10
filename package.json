@@ -6,14 +6,18 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
+    "test:cypress": "cypress open",
     "eject": "craco eject"
   },
   "dependencies": {
     "@craco/craco": "^6.3.0",
+    "@cypress/react": "^5.10.1",
+    "@cypress/webpack-dev-server": "^1.6.0",
     "@reduxjs/toolkit": "^1.6.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.1.10",
+    "cypress": "^8.5.0",
     "dayjs": "^1.10.7",
     "i18next": "^21.2.4",
     "react": "^17.0.2",
@@ -26,6 +30,7 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.0",
     "autoprefixer": "^9.8.8",
+    "eslint-plugin-cypress": "^2.12.1",
     "postcss": "^7.0.39",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.16",
     "vite": "^2.6.4"
@@ -33,7 +38,8 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:cypress/recommended"
     ]
   },
   "browserslist": {
