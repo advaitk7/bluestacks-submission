@@ -28,3 +28,6 @@
 - `@craco/craco`,`react-scripts` - Build Tooling
 - `@cypress/react`,`@cypress/webpack-dev-server`,`cypress`,`eslint-plugin-cypress` - Testing Framework
 - `postcss` - required for CSS
+
+## Tests
+- `cypress/integration/init.test.js` contains all the tests as mentioned in the task.
