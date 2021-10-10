@@ -8,11 +8,10 @@
 ```
 
 ## For Dev Mode
-- run `npm run dev` 
+- run `npm run start` 
 
 ## For Prod Mode
 - run `npm run build` to build the assets
-- run `npm run serve` to start the server locally
 
 
 ## Packages used
@@ -23,8 +22,9 @@
 - `react-calendar` - for calendar picker
 - `react-i18next` - react bindings for i18next
 - `react-redux` - react bindings for redux
-- `react-router` - DOM bindings for react
-- `@vitejs/plugin-react` - react plugin for vite js
+- `react-dom` - DOM bindings for react
 - `autoprefixer` - postCss auto vendor prefixer
 - `tailwindcss` - CSS Framework
-- `vite` - Build Tooling
+- `@craco/craco`,`react-scripts` - Build Tooling
+- `@cypress/react`,`@cypress/webpack-dev-server`,`cypress`,`eslint-plugin-cypress` - Testing Framework
+- `postcss` - required for CSS
