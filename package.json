@@ -3,24 +3,49 @@
   "version": "0.0.0",
   "scripts": {
     "i18next": "i18next 'src/**/*.{js,jsx}' -c ./i18next-parser.config.js",
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "craco eject"
   },
   "dependencies": {
+    "@craco/craco": "^6.3.0",
     "@reduxjs/toolkit": "^1.6.2",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.1.10",
     "dayjs": "^1.10.7",
     "i18next": "^21.2.4",
-    "react": "^17.0.0",
+    "react": "^17.0.2",
     "react-calendar": "^3.4.0",
-    "react-dom": "^17.0.0",
+    "react-dom": "^17.0.2",
     "react-i18next": "^11.12.0",
-    "react-redux": "^7.2.5"
+    "react-redux": "^7.2.5",
+    "react-scripts": "4.0.3"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.0",
-    "autoprefixer": "^10.3.7",
-    "tailwindcss": "^2.2.16",
+    "autoprefixer": "^9.8.8",
+    "postcss": "^7.0.39",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.16",
     "vite": "^2.6.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
