@@ -12,6 +12,7 @@ function App() {
   useEffect(() => {
     if (campaignDataLength === 0)
       dispatch(initializeCampaignData());
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

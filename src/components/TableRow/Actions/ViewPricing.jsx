@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ActionButton from "./ActionButton";
 import PriceModal from "../Modals/PriceModal";
 import useToggleModal from "../../../utils/useToggleModal";

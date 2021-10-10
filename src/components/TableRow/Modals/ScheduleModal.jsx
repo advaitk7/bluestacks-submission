@@ -5,7 +5,7 @@ import { updateDateInCampaign } from "../../../slices/campaignSlice";
 import Calendar from "../../Calendar";
 
 const ScheduleModalBody = ({ id, handleClose }) => {
-  const { createdOn, name, region, image_url } = useSelector(state => state.campaign.data.filter((campaign) => campaign.id === id)[0]);
+  const { createdOn, name, region } = useSelector(state => state.campaign.data.filter((campaign) => campaign.id === id)[0]);
   const dispatch = useDispatch();
 
   // const imagePath = "/assets/images/Dashboard" + image_url;
@@ -20,7 +20,7 @@ const ScheduleModalBody = ({ id, handleClose }) => {
   return (
     <>
       <div className="flex items-end mb-7">
-        <img src={imagePath} width={135} height={135} className="mr-3 block" />
+        <img alt="campaign logo" src={imagePath} width={135} height={135} className="mr-3 block" />
         <div className="flex-1 mb-3">
           <p className="text-[#2B416C] overflow-ellipsis overflow-hidden whitespace-nowrap mb-3">{name}</p>
           <p className="text-[#9CA2B7] text-sm">{region}</p>

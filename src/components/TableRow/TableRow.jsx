@@ -6,7 +6,7 @@ import ScheduleAction from "./Actions/Schedule";
 import ViewPricingAction from "./Actions/ViewPricing";
 import { useSelector } from "react-redux";
 export default function TableRow({ id }) {
-  const { createdOn, name, region, price, csv, report, image_url } = useSelector(state => state.campaign.data.filter((campaign) => campaign.id === id)[0]);
+  const { createdOn, name, region, image_url } = useSelector(state => state.campaign.data.filter((campaign) => campaign.id === id)[0]);
   const imagePath = "/assets/images/Dashboard" + image_url;
 
   return (

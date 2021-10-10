@@ -7,6 +7,7 @@ export default function DateElement({ createdOn }) {
   const diff = campaignDate.fromNow();
 
   // leave this translation hook over here to cause a re-render on change of language
+  // eslint-disable-next-line no-unused-vars
   const { t } = useTranslation();
 
   return (

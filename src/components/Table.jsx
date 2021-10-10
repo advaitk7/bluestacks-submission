@@ -18,6 +18,7 @@ const getCampaignsForTab = (campaignData, activeTab) => {
       case TABS.upcoming:
         return createdOn > plusOneDate;
       case TABS.live:
+      default:
         return createdOn >= currentDate && createdOn < plusOneDate;
     }
   });
